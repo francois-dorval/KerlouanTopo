@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:minHeight="?attr/actionBarSize"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppToolbar"
+    />
+
+    <Button
+        android:id="@+id/tout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        style="@style/CodeFont"
+        android:background="@drawable/mybutton"
+        android:layout_marginTop="@dimen/menu_margin_top"
+
+        android:layout_margin="@dimen/menu_margin"
+        android:text="@string/tout"
+        android:onClick="boutonTout"
+        />
+
+
+    <Button
+        android:id="@+id/paradis"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        style="@style/CodeFont"
+        android:background="@drawable/mybutton"
+        android:layout_margin="@dimen/menu_margin"
+
+        android:text="@string/petit_paradis"
+        android:onClick="boutonParadis"
+        />
+    <Button
+        android:id="@+id/bivouac"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/mybutton"
+        android:layout_margin="@dimen/menu_margin"
+
+        style="@style/CodeFont"
+        android:text="@string/bivouac"
+        android:onClick="boutonBivouac"
+        />
+
+    <Button
+        android:id="@+id/meneham"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        style="@style/CodeFont"
+        android:background="@drawable/mybutton"
+        android:layout_margin="@dimen/menu_margin"
+
+        android:text="@string/meneham"
+        android:onClick="boutonMeneHam"
+        />
+
+    <Button
+        android:id="@+id/riviere"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        style="@style/CodeFont"
+        android:background="@drawable/mybutton"
+        android:layout_margin="@dimen/menu_margin"
+
+        android:text="@string/riviere"
+        android:onClick="boutonRiviere"
+        />
+
+    <Button
+        android:id="@+id/cremiou"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        style="@style/CodeFont"
+        android:background="@drawable/mybutton"
+        android:layout_margin="@dimen/menu_margin"
+
+        android:text="@string/cremiou"
+        android:onClick="boutonCremiou"
+        />
+</LinearLayout>
