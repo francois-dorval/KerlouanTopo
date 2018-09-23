@@ -87,4 +87,15 @@
         android:text="@string/cremiou"
         android:onClick="boutonCremiou"
         />
+    <Button
+        android:id="@+id/neizvran"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        style="@style/CodeFont"
+        android:background="@drawable/mybutton"
+        android:layout_margin="@dimen/menu_margin"
+
+        android:text="@string/neizvran"
+        android:onClick="boutonNeizvran"
+        />
 </LinearLayout>

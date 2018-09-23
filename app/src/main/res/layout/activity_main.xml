@@ -15,9 +15,17 @@
         android:layout_height="wrap_content"
         android:theme="@style/AppToolbar"
         />
-    <com.github.barteksc.pdfviewer.PDFView
-        android:id="@+id/pdfView"
+
+    <fragment android:name="com.github.dorval.francois.kerlouantopo.fragment.PdfReaderFragment"
+        android:id="@+id/pdf_reader_fragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent" />
+
+    <fragment android:name="com.github.dorval.francois.kerlouantopo.fragment.SecteurFragment"
+        android:id="@+id/secteur_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
 
 </LinearLayout>

@@ -21,5 +21,6 @@ Appli basée sur le topo Kimpadenn :\n
     <string name="txt_credits_body">
 Annuaire des marées : \n
         http://maree.info/73    </string>
+    <string name="neizvran">Neiz Vran</string>
 
 </resources>
