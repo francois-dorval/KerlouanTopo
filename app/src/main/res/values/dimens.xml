@@ -5,4 +5,13 @@
     <dimen name="menu_margin">4dp</dimen>
     <dimen name="menu_margin_top">8dp</dimen>
 
+    <dimen name="text_size_small">14sp</dimen>
+    <dimen name="text_size_medium">18sp</dimen>
+    <dimen name="text_size_large">22sp</dimen>
+
+
+    <dimen name="cotation_width">50dp</dimen>
+    <dimen name="id_width">30dp</dimen>
+    <dimen name="padding">10dp</dimen>
+
 </resources>

@@ -8,35 +8,54 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.github.dorval.francois.apitopo.model.ws.WsVoie;
 import com.github.dorval.francois.kerlouantopo.R;
 import com.github.dorval.francois.kerlouantopo.model.voie.Voie;
+
+import org.apache.commons.lang3.StringUtils;
 
 
 public class VoieWidget extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-    private final TextView secteur;
+
     private final TextView cotation;
-    //private final View hseparateur;
-    private Voie voie;
+    private final TextView nom;
+    private final TextView id;
+    private final TextView commentaire;
+    private final ImageView camera;
+
 
     public VoieWidget(LinearLayout v) {
 
         super(v);
-        secteur = (TextView) v.findViewById(R.id.secteur);
+        id = (TextView) v.findViewById(R.id.id);
+        nom = (TextView) v.findViewById(R.id.nom);
         cotation = (TextView) v.findViewById(R.id.cotation);
-       // hseparateur= (View) v.findViewById(R.id.hseparateur);
+        commentaire = (TextView) v.findViewById(R.id.commentaire);
+        camera = (ImageView) v.findViewById(R.id.camera);
+
         View root = v.findViewById(R.id.root);
         root.setOnClickListener(this);
 
 
     }
 
-    public void setvoie(Voie voie, Voie voiePrecedante, Voie voieSuivante) {
-        this.voie = voie;
-        secteur.setText(voie.getSecteur());
+    public void setvoie(Voie voie) {
+
+        id.setText(voie.getId().toString());
+
+        nom.setText(voie.getNom());
+
+        if (StringUtils.isNotEmpty(voie.getNom())){
+            commentaire.setText(voie.getNom());
+        }
+
         if (voie.getCotation()!=null){
             cotation.setText(voie.getCotation().getLabel());
+        }
+
+
+        if (StringUtils.isNotEmpty(voie.getCommentaire())){
+            commentaire.setText(voie.getCommentaire());
         }
 
 

@@ -42,11 +42,13 @@ public class VoieDaoStub  {
         res.add(getVoie19());
         res.add(getVoie20());
 
+        Long i=1L;
         for(Voie voie:res){
             Lorem lorem = LoremIpsum.getInstance();
-            voie.setCommentaire(lorem.getWords(0,50));
-            voie.setNom(lorem.getWords(1,2));
-
+            voie.setId(i);
+            voie.setCommentaire(lorem.getWords(0,20));
+            voie.setNom(lorem.getWords(1,3));
+            i++;
         }
         return res;
     }

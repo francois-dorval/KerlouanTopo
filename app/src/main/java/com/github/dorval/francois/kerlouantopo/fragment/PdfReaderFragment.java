@@ -84,14 +84,13 @@ public class PdfReaderFragment extends Fragment implements OnPageChangeListener,
      * affichage page pdf
      */
     public void displayCurrentPage() {
-        String res = "" + String.format("%02d.pdf", indexPage);
+        String res = "pdf/" + String.format("%02d.pdf", indexPage);
         Toast.makeText(getActivity(), "page " + indexPage, Toast.LENGTH_SHORT).show();
 
 
         pDFView.fromAsset(res)
                 .onPageChange(this)
                 .enableAnnotationRendering(true)
-
                 .scrollHandle(new DefaultScrollHandle(getActivity()))
                 .spacing(10) // in dp
                 .onPageError(this)

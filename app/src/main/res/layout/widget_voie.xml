@@ -2,53 +2,85 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="10dp"
+
+    >
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/root"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="10dp">
 
-        <TextView
-            android:id="@+id/secteur"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:adjustViewBounds="true"
-            android:gravity="center_vertical"
-            android:text="12"
-             />
+        >
+
 
         <!--<View style="@style/VDivider" />-->
 
-        <LinearLayout
-            android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/id"
+            android:layout_width="@dimen/id_width"
             android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
             android:layout_gravity="center_vertical"
-            >
-
-        </LinearLayout>
+            android:text="2"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/text_size_large"
+             />
 
         <TextView
             android:id="@+id/cotation"
-
-            android:layout_width="50dp"
+            android:layout_width="@dimen/cotation_width"
             android:layout_height="wrap_content"
-
             android:adjustViewBounds="true"
-
-
             android:layout_gravity="center_vertical"
             android:text="6a+"
             android:textColor="@android:color/black"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textSize="@dimen/text_size_large"
+            />
 
+        <TextView
+            android:id="@+id/nom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:layout_gravity="center_vertical"
+            android:text="Nom de la voie"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/text_size_large"
+            />
 
+        <ImageView
+            android:id="@+id/camera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center_vertical"
+
+            android:adjustViewBounds="true"
+            android:gravity="right"
+            android:src="@drawable/camera" />
 
 
     </LinearLayout>
+    <TextView
+        android:id="@+id/commentaire"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
 
+        android:text="Très long commentaiiiire..."
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/text_size_small"
+        android:textStyle="italic"
+        />
+    <ImageView
+        android:padding="@dimen/padding"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:src="@drawable/bloc1" />
     <!--<View-->
         <!--android:id="@+id/hseparateur"-->
         <!--style="@style/HDivider" />-->

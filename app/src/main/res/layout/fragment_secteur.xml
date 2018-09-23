@@ -13,14 +13,15 @@
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:layout_gravity="center_vertical"
-        android:text="Pas facile facile, bonne chance"
-         />
+        android:text="Plein ouest, accessible à marée haute. Peu de blocs, mais leurs qualités et la vue sur le port de Tresseny et le phare de l'île Vierge font de ce secteur un must."
+     />
 
     <ImageView
+        android:padding="@dimen/padding"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/mybutton"
-        />
+        android:adjustViewBounds="true"
+        android:src="@drawable/map" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view"
