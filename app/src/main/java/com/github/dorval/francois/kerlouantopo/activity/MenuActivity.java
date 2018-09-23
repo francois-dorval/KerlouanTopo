@@ -37,6 +37,7 @@ public class MenuActivity extends AppCompatActivity {
         PARADIS,
         BIVOUAC,
         RIVIERE,
+        NEIZVRAN,
         CREMIOU
     }
 
@@ -76,39 +77,46 @@ public class MenuActivity extends AppCompatActivity {
 
 
     public void boutonMeneHam(View view)    {
-        Intent intent = new Intent(MenuActivity.this, Main.class);
+        Intent intent = new Intent(MenuActivity.this, MainActivity.class);
         intent.putExtra(MENU_SELECTED, MenuElement.MENEHAM);
         startActivity(intent);
     }
 
     public void boutonParadis(View view)    {
-        Intent intent = new Intent(MenuActivity.this, Main.class);
+        Intent intent = new Intent(MenuActivity.this, MainActivity.class);
         intent.putExtra(MENU_SELECTED, MenuElement.PARADIS);
         startActivity(intent);
     }
 
     public void boutonTout(View view)    {
-        Intent intent = new Intent(MenuActivity.this, Main.class);
+        Intent intent = new Intent(MenuActivity.this, MainActivity.class);
         intent.putExtra(MENU_SELECTED, MenuElement.TOUT);
         startActivity(intent);
     }
 
     public void boutonRiviere(View view)    {
-        Intent intent = new Intent(MenuActivity.this, Main.class);
+        Intent intent = new Intent(MenuActivity.this, MainActivity.class);
         intent.putExtra(MENU_SELECTED, MenuElement.RIVIERE);
         startActivity(intent);
     }
 
     public void boutonBivouac(View view)    {
-        Intent intent = new Intent(MenuActivity.this, Main.class);
+        Intent intent = new Intent(MenuActivity.this, MainActivity.class);
         intent.putExtra(MENU_SELECTED, MenuElement.BIVOUAC);
         startActivity(intent);
     }
 
     public void boutonCremiou(View view)    {
-        Intent intent = new Intent(MenuActivity.this, Main.class);
+        Intent intent = new Intent(MenuActivity.this, MainActivity.class);
         intent.putExtra(MENU_SELECTED, MenuElement.CREMIOU);
         startActivity(intent);
     }
+
+    public void boutonNeizvran(View view)    {
+        Intent intent = new Intent(MenuActivity.this, MainActivity.class);
+        intent.putExtra(MENU_SELECTED, MenuElement.NEIZVRAN);
+        startActivity(intent);
+    }
+
 
 }
