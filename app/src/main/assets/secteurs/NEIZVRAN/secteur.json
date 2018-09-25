@@ -1,0 +1,32 @@
+{
+
+
+  "description1":"Oh le beau secteur",
+  "description1":"Vraiment très beau",
+  "nom":"Neiz Vran",
+  "map":"map.jpg",
+  "voies":[
+    {
+      "id":"1",
+      "cotation":"6a+",
+      "nom":"La voie ture",
+      "commentaire":"Top voie",
+      "photo":"NV_S1B5.jpg"
+    },
+    {
+      "id":"2",
+      "cotation":"6c+",
+      "nom":"La voie trop ture",
+      "commentaire":"Top moumoute voie",
+      "photo":"NV_S1B7.jpg"
+    },
+    {
+      "id":"3",
+      "cotation":"4c+",
+      "nom":"La voie pas trop ture"
+    }
+
+
+  ]
+
+}
