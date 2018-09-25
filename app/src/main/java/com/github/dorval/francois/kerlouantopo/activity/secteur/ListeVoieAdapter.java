@@ -44,7 +44,7 @@ public class ListeVoieAdapter extends RecyclerView.Adapter<VoieWidget> {
     // Replace the contents of a view (invoked by the layout manager)
     @Override
     public void onBindViewHolder(VoieWidget holder, int position) {
-        holder.setvoie(dataSet.get(position));
+        holder.setVoie(holder, dataSet.get(position));
     }
 
     // Return the size of your dataset (invoked by the layout manager)

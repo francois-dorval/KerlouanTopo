@@ -18,6 +18,8 @@ public class Voie implements Comparable<Voie>, Serializable{
 
     private String commentaire;
 
+    private String photo;
+
 
     public Cotation getCotation() {
         return cotation;
@@ -36,7 +38,9 @@ public class Voie implements Comparable<Voie>, Serializable{
 
     public void setCommentaire(String commentaire) {        this.commentaire = commentaire;    }
 
+    public String getPhoto() {return photo;}
 
+    public void setPhoto(String photo) {        this.photo = photo;    }
 
     public void setId(Long id) {
         this.id = id;
@@ -58,6 +62,7 @@ public class Voie implements Comparable<Voie>, Serializable{
                 ", cotation=" + cotation +
                 ", nom='" + nom + '\'' +
                 ", commentaire='" + commentaire + '\'' +
+                ", photo='" + photo + '\'' +
                 '}';
     }
 }

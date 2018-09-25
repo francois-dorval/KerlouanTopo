@@ -12,7 +12,10 @@ import android.widget.LinearLayout;
 import com.github.dorval.francois.kerlouantopo.R;
 import com.github.dorval.francois.kerlouantopo.activity.MainActivity;
 import com.github.dorval.francois.kerlouantopo.activity.secteur.ListeVoieAdapter;
+import com.github.dorval.francois.kerlouantopo.dao.SecteurDao;
+import com.github.dorval.francois.kerlouantopo.model.voie.Secteur;
 import com.github.dorval.francois.kerlouantopo.model.voie.Voie;
+import com.github.dorval.francois.kerlouantopo.util.ErrorPopup;
 import com.github.dorval.francois.kerlouantopo.util.VoieDaoStub;
 
 import java.util.ArrayList;
@@ -22,7 +25,10 @@ public class SecteurFragment extends Fragment {
 
 
     private RecyclerView recyclerView;
+
     private LinearLayoutManager layoutManager;
+
+    SecteurDao secteurDao = new SecteurDao();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -32,17 +38,31 @@ public class SecteurFragment extends Fragment {
 
         recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
-        layoutManager = new LinearLayoutManager(getContext());
+
+        layoutManager = new LinearLayoutManager(getContext()) {
+            @Override
+            public boolean canScrollVertically() {
+                return false;
+            }
+        };
         recyclerView.setLayoutManager(layoutManager);
-        List<Voie> voies = VoieDaoStub.getVoies();
-        recyclerView.setAdapter(new ListeVoieAdapter(voies));
+
+        try {
+            Secteur secteur = secteurDao.getSecteur(this.getActivity(), Secteur.ID.NEIZVRAN);
+            //List<Voie> voies = VoieDaoStub.getVoies();
+            List<Voie> voies = secteur.getVoies();
+            recyclerView.setAdapter(new ListeVoieAdapter(voies));
+        } catch (Exception e) {
+            e.printStackTrace();
+            ErrorPopup.show(this.getContext(), "Erreur récupération données secteur");
+        }
+
         return view;
     }
 
 
-
     private void setCustomTitle(CharSequence text) {
-        ((MainActivity)getActivity()).setCustomTitle(text);
+        ((MainActivity) getActivity()).setCustomTitle(text);
     }
 
 }
