@@ -1,32 +1,27 @@
 {
 
 
-  "description1":"Oh le beau secteur",
-  "description1":"Vraiment très beau",
+
+  "description1":"Plein ouest, accessible à marée haute. Peu de blocs, mais leurs qualités et la vue sur le port de Tresseny et le phare de l'île Vierge font de ce secteur un must.",
   "nom":"Neiz Vran",
-  "map":"map.jpg",
-  "voies":[
+  "map":"map.png",
+  "gps":"https://www.google.fr/maps/dir//48.6475852,-4.4329331/@48.6474249,-4.4326514,244m/data=!3m1!1e3",
+
+  "subsecteurs":[
     {
-      "id":"1",
-      "cotation":"6a+",
-      "nom":"La voie ture",
-      "commentaire":"Top voie",
-      "photo":"NV_S1B5.jpg"
+      "id":"NEIZVRAN1",
+      "nom":"Neiz Vran 1"
     },
     {
-      "id":"2",
-      "cotation":"6c+",
-      "nom":"La voie trop ture",
-      "commentaire":"Top moumoute voie",
-      "photo":"NV_S1B7.jpg"
+      "id":"NEIZVRAN1_1",
+      "nom":"Neiz Vran 1.1"
     },
     {
-      "id":"3",
-      "cotation":"4c+",
-      "nom":"La voie pas trop ture"
+      "id":"NEIZVRAN1_2",
+      "nom":"Neiz Vran 1.2"
     }
 
+    ]
 
-  ]
 
 }

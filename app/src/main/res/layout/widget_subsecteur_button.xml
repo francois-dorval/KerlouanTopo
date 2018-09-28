@@ -1,0 +1,23 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dp"
+
+    >
+
+    <Button
+        android:id="@+id/btn"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        style="@style/CodeFont"
+        android:background="@drawable/mybutton"
+        android:layout_marginTop="@dimen/menu_margin_top"
+        android:layout_margin="@dimen/menu_margin"
+        android:text="Texte"
+
+        />
+
+</LinearLayout>

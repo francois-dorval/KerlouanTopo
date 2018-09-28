@@ -11,7 +11,7 @@
 
 
     <dimen name="cotation_width">50dp</dimen>
-    <dimen name="id_width">30dp</dimen>
+    <dimen name="id_width">40dp</dimen>
     <dimen name="padding">10dp</dimen>
 
 </resources>

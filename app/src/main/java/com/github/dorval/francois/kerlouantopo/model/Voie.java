@@ -1,9 +1,8 @@
-package com.github.dorval.francois.kerlouantopo.model.voie;
+package com.github.dorval.francois.kerlouantopo.model;
 
 import android.support.annotation.NonNull;
 
 import java.io.Serializable;
-import java.util.Scanner;
 
 public class Voie implements Comparable<Voie>, Serializable{
 
@@ -12,7 +11,7 @@ public class Voie implements Comparable<Voie>, Serializable{
 
     Long id;
 
-    Cotation cotation;
+    String cotation;
 
     private String nom;
 
@@ -21,11 +20,11 @@ public class Voie implements Comparable<Voie>, Serializable{
     private String photo;
 
 
-    public Cotation getCotation() {
+    public String getCotation() {
         return cotation;
     }
 
-    public void setCotation(Cotation cotation) {
+    public void setCotation(String cotation) {
         this.cotation = cotation;
     }
 

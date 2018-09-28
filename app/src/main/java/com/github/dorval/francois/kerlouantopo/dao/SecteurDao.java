@@ -3,9 +3,9 @@ package com.github.dorval.francois.kerlouantopo.dao;
 import android.app.Activity;
 import android.util.Log;
 
-import com.github.dorval.francois.kerlouantopo.model.voie.Cotation;
-import com.github.dorval.francois.kerlouantopo.model.voie.Secteur;
-import com.github.dorval.francois.kerlouantopo.model.voie.Voie;
+
+import com.github.dorval.francois.kerlouantopo.model.Secteur;
+import com.github.dorval.francois.kerlouantopo.model.Voie;
 import com.github.dorval.francois.kerlouantopo.util.JsonFileLoader;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -33,12 +33,12 @@ public class SecteurDao {
      * @return
      * @throws Exception
      */
-    public Secteur getSecteur(Activity activity, Secteur.ID id) throws Exception {
-        JSONObject jsonObject = JsonFileLoader.loadJSONFromAsset(activity, SECTEUR_DIR + "/" + id+"/"+SECTEUR_FILE);
+    public Secteur getSecteur(Activity activity, String secteurPath ) throws Exception {
+        JSONObject jsonObject = JsonFileLoader.loadJSONFromAsset(activity, SECTEUR_DIR + "/" + secteurPath+"/"+SECTEUR_FILE);
 
         Gson gson = new GsonBuilder().create();
         Secteur sec = gson.fromJson(jsonObject.toString(), Secteur.class);
-        relocateImages(SECTEUR_DIR + "/" + id+"/", sec);
+        relocateImages(SECTEUR_DIR + "/" + secteurPath +"/", sec);
         Log.i(this.getClass().getName(), "sec "+sec);
         return sec;
 

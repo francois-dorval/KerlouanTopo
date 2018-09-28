@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.github.dorval.francois.kerlouantopo.R;
-import com.github.dorval.francois.kerlouantopo.model.voie.Voie;
+import com.github.dorval.francois.kerlouantopo.model.Voie;
 import com.github.dorval.francois.kerlouantopo.widget.VoieWidget;
 
 import java.util.ArrayList;

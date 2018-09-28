@@ -28,11 +28,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
+                android:textSize="@dimen/text_size_medium"
                 android:adjustViewBounds="true"
                 android:padding="@dimen/padding"
-                android:text="Plein ouest, accessible à marée haute. Peu de blocs, mais leurs qualités et la vue sur le port de Tresseny et le phare de l'île Vierge font de ce secteur un must." />
+                android:text="Description secteur à venir" />
 
             <ImageView
+                android:id="@+id/img"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
@@ -40,7 +43,12 @@
                 android:src="@drawable/map" />
 
             <android.support.v7.widget.RecyclerView
-                android:id="@+id/recycler_view"
+                android:id="@+id/recycler_view_subsecteurs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_view_voies"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </LinearLayout>

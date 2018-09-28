@@ -19,13 +19,18 @@ import com.github.barteksc.pdfviewer.scroll.DefaultScrollHandle;
 import com.github.dorval.francois.kerlouantopo.R;
 import com.github.dorval.francois.kerlouantopo.fragment.PdfReaderFragment;
 import com.github.dorval.francois.kerlouantopo.fragment.SecteurFragment;
+import com.github.dorval.francois.kerlouantopo.model.Secteur;
 import com.github.dorval.francois.kerlouantopo.util.OnSwipeTouchListener;
+
+import org.apache.commons.lang3.StringUtils;
 
 public class MainActivity extends AppCompatActivity {
 
 
 
     Toolbar toolbar;
+    private String secteurPath;
+    private SecteurFragment secteurFragment;
 
 
     @Override
@@ -37,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
 
         FragmentManager fm = getSupportFragmentManager();
         PdfReaderFragment pdfReaderFragment = (PdfReaderFragment)fm.findFragmentById(R.id.pdf_reader_fragment);
-        SecteurFragment secteurFragment = (SecteurFragment)fm.findFragmentById(R.id.secteur_fragment);
+        secteurFragment = (SecteurFragment)fm.findFragmentById(R.id.secteur_fragment);
 
         Intent i = getIntent();
         int indexPage=-1;
@@ -84,12 +89,17 @@ public class MainActivity extends AppCompatActivity {
                     .show(secteurFragment)
                     .hide(pdfReaderFragment)
                     .commit();
+            secteurPath = Secteur.ID.NEIZVRAN.toString();
+            secteurFragment.updateSecteurData(secteurPath);
+            setCustomTitle(secteurFragment.getSecteurName());
         }
 
     }
 
 
-
+    /**
+     *
+     */
     private void initToolBar(){
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle(R.string.app_name);
@@ -102,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
      * titre
      */
     public void setCustomTitle(CharSequence title){
-        if (toolbar!=null){
+        if (toolbar!=null && StringUtils.isNotEmpty(title)){
             toolbar.setTitle(title);
         }
 
@@ -110,4 +120,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    public void goToSecteur(Secteur.ID id) {
+        secteurPath +="/"+id.toString();
+        secteurFragment.updateSecteurData(secteurPath);
+        getSupportFragmentManager().beginTransaction().detach(secteurFragment).attach(secteurFragment).commit();
+
+        setCustomTitle(secteurFragment.getSecteurName());
+    }
 }

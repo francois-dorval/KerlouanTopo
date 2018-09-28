@@ -1,4 +1,4 @@
-package com.github.dorval.francois.kerlouantopo.model.voie;
+package com.github.dorval.francois.kerlouantopo.model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,7 +6,10 @@ import java.util.List;
 public class Secteur {
 
     public  enum ID{
-        NEIZVRAN
+        NEIZVRAN,
+        NEIZVRAN1,
+        NEIZVRAN1_1,
+        NEIZVRAN1_2
     }
 
 
@@ -19,6 +22,8 @@ public class Secteur {
     private String description1;
 
     private String description2;
+
+    private List<SubSecteur> subsecteurs= new ArrayList<>();
 
     private List<Voie> voies = new ArrayList<>();
 
@@ -69,4 +74,8 @@ public class Secteur {
     public void setVoies(List<Voie> voies) {
         this.voies = voies;
     }
+
+    public List<SubSecteur> getSubsecteurs() {return subsecteurs;}
+
+    public void setSubsecteurs(List<SubSecteur> subsecteurs) {this.subsecteurs = subsecteurs;}
 }

@@ -1,7 +1,5 @@
 package com.github.dorval.francois.kerlouantopo.widget;
 
-import android.content.Context;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -10,7 +8,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.github.dorval.francois.kerlouantopo.R;
-import com.github.dorval.francois.kerlouantopo.model.voie.Voie;
+import com.github.dorval.francois.kerlouantopo.model.Voie;
 import com.github.dorval.francois.kerlouantopo.util.ImageFromAsset;
 
 import org.apache.commons.lang3.StringUtils;
@@ -50,17 +48,20 @@ public class VoieWidget extends RecyclerView.ViewHolder implements View.OnClickL
 
         nom.setText(voie.getNom());
 
-        if (StringUtils.isNotEmpty(voie.getNom())){
-            commentaire.setText(voie.getNom());
-        }
-
         if (voie.getCotation()!=null){
-            cotation.setText(voie.getCotation().getLabel());
+            cotation.setText(voie.getCotation());
+        }else{
+            cotation.setText("?");
         }
 
 
         if (StringUtils.isNotEmpty(voie.getCommentaire())){
             commentaire.setText(voie.getCommentaire());
+            commentaire.setVisibility(View.VISIBLE);
+
+        }else{
+            commentaire.setVisibility(View.GONE);
+
         }
 
         if (StringUtils.isNotEmpty(voie.getPhoto())){
@@ -77,6 +78,7 @@ public class VoieWidget extends RecyclerView.ViewHolder implements View.OnClickL
             }
 
             camera.setVisibility(View.VISIBLE);
+            photo.setVisibility(View.GONE);
         }else{
             photoPresent = false;
             camera.setVisibility(View.GONE);

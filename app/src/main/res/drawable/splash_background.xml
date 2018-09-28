@@ -3,10 +3,17 @@
 
     <item android:drawable="@color/colorbackSplash" />
 
-    <item>
-        <bitmap
-            android:gravity="center"
-            android:src="@drawable/splash" />
-    </item>
+
+    <item android:drawable="@drawable/spash_screen_gradient" />
+
+        <item android:top="50dp"
+            android:bottom="50dp"
+            android:left="50dp"
+            android:right="50dp"
+            >
+            <bitmap android:src="@drawable/spash_rotate"
+                android:gravity="center_vertical|center_horizontal" />
+        </item>
+
 
 </layer-list>
