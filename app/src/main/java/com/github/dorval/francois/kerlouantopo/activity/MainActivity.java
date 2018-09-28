@@ -24,13 +24,18 @@ import com.github.dorval.francois.kerlouantopo.util.OnSwipeTouchListener;
 
 import org.apache.commons.lang3.StringUtils;
 
+import java.util.Stack;
+
 public class MainActivity extends AppCompatActivity {
 
 
 
     Toolbar toolbar;
-    private String secteurPath;
+
+
+
     private SecteurFragment secteurFragment;
+
 
 
     @Override
@@ -67,7 +72,6 @@ public class MainActivity extends AppCompatActivity {
                 case CREMIOU:
                     indexPage = 81;
                     break;
-                case NEIZVRAN:
 
             }
         }
@@ -75,24 +79,14 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        if (indexPage>-1){
-            pdfReaderFragment.setCurrentPage(indexPage);
+
+           pdfReaderFragment.setCurrentPage(indexPage);
             pdfReaderFragment.displayCurrentPage();
             fm.beginTransaction()
                     //.setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_out)
                     .show(pdfReaderFragment)
                     .hide(secteurFragment)
                     .commit();
-        }else{
-            fm.beginTransaction()
-                    //.setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_out)
-                    .show(secteurFragment)
-                    .hide(pdfReaderFragment)
-                    .commit();
-            secteurPath = Secteur.ID.NEIZVRAN.toString();
-            secteurFragment.updateSecteurData(secteurPath);
-            setCustomTitle(secteurFragment.getSecteurName());
-        }
 
     }
 
@@ -119,12 +113,4 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
-    public void goToSecteur(Secteur.ID id) {
-        secteurPath +="/"+id.toString();
-        secteurFragment.updateSecteurData(secteurPath);
-        getSupportFragmentManager().beginTransaction().detach(secteurFragment).attach(secteurFragment).commit();
-
-        setCustomTitle(secteurFragment.getSecteurName());
-    }
 }

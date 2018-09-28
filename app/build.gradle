@@ -6,7 +6,7 @@ android {
         applicationId "com.github.dorval.francois.kerlouantopo"
         minSdkVersion 15
         targetSdkVersion 28
-        versionCode 2
+        versionCode 3
         versionName "1.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }

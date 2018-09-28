@@ -5,51 +5,38 @@ import java.util.List;
 
 public class Secteur {
 
-    public  enum ID{
-        NEIZVRAN,
-        NEIZVRAN1,
-        NEIZVRAN1_1,
-        NEIZVRAN1_2
-    }
 
+    public static final String NEIZVRAN = "NEIZVRAN";
 
     private String nom;
 
-    private String map;
+    private String image;
 
-    private ID id;
+    private String id;
 
-    private String description1;
-
-    private String description2;
+    private String description;
 
     private List<SubSecteur> subsecteurs= new ArrayList<>();
 
     private List<Voie> voies = new ArrayList<>();
 
-    public ID getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(ID id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public String getDescription1() {
-        return description1;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDescription1(String description1) {
-        this.description1 = description1;
+    public void setDescription(String description1) {
+        this.description = description1;
     }
 
-    public String getDescription2() {
-        return description2;
-    }
 
-    public void setDescription2(String description2) {
-        this.description2 = description2;
-    }
 
     public String getNom() {
         return nom;
@@ -59,13 +46,9 @@ public class Secteur {
         this.nom = nom;
     }
 
-    public String getMap() {
-        return map;
-    }
+    public String getImage() {return image;    }
 
-    public void setMap(String map) {
-        this.map = map;
-    }
+    public void setImage(String image) {this.image = image;    }
 
     public List<Voie> getVoies() {
         return voies;

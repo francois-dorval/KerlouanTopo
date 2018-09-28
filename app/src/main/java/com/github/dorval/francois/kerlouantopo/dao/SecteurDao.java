@@ -34,11 +34,11 @@ public class SecteurDao {
      * @throws Exception
      */
     public Secteur getSecteur(Activity activity, String secteurPath ) throws Exception {
-        JSONObject jsonObject = JsonFileLoader.loadJSONFromAsset(activity, SECTEUR_DIR + "/" + secteurPath+"/"+SECTEUR_FILE);
+        JSONObject jsonObject = JsonFileLoader.loadJSONFromAsset(activity, SECTEUR_DIR + "/" + secteurPath+SECTEUR_FILE);
 
         Gson gson = new GsonBuilder().create();
         Secteur sec = gson.fromJson(jsonObject.toString(), Secteur.class);
-        relocateImages(SECTEUR_DIR + "/" + secteurPath +"/", sec);
+        relocateImages(SECTEUR_DIR + "/" + secteurPath , sec);
         Log.i(this.getClass().getName(), "sec "+sec);
         return sec;
 
@@ -50,8 +50,8 @@ public class SecteurDao {
      * @param sec
      */
     private void relocateImages(String prefix, Secteur sec) {
-        if (StringUtils.isNotEmpty(sec.getMap())){
-            sec.setMap(prefix+sec.getMap());
+        if (StringUtils.isNotEmpty(sec.getImage())){
+            sec.setImage(prefix+sec.getImage());
         }
         if (sec.getVoies()!=null){
             for (int i = 0; i < sec.getVoies().size(); i++) {

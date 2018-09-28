@@ -1,101 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
 
-    android:orientation="vertical"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent" >
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background_mer"
+
+    >
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
-        android:minHeight="?attr/actionBarSize"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/AppToolbar"
-    />
+        android:minHeight="?attr/actionBarSize"
+        android:theme="@style/AppToolbar" />
 
-    <Button
-        android:id="@+id/tout"
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        style="@style/CodeFont"
-        android:background="@drawable/mybutton"
-        android:layout_marginTop="@dimen/menu_margin_top"
+        android:layout_height="fill_parent"
+        android:background="#ddffffff"
+        android:padding="@dimen/menu_padding"
+        >
 
-        android:layout_margin="@dimen/menu_margin"
-        android:text="@string/tout"
-        android:onClick="boutonTout"
-        />
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+
+            >
 
 
-    <Button
-        android:id="@+id/paradis"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        style="@style/CodeFont"
-        android:background="@drawable/mybutton"
-        android:layout_margin="@dimen/menu_margin"
+            <Button
+                android:id="@+id/tout"
+                style="@style/CodeFont"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/menu_margin_top"
+                android:layout_marginBottom="@dimen/menu_margin_bottom"
 
-        android:text="@string/petit_paradis"
-        android:onClick="boutonParadis"
-        />
-    <Button
-        android:id="@+id/bivouac"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/mybutton"
-        android:layout_margin="@dimen/menu_margin"
 
-        style="@style/CodeFont"
-        android:text="@string/bivouac"
-        android:onClick="boutonBivouac"
-        />
+                android:background="@drawable/mybutton"
+                android:onClick="boutonTout"
+                android:text="@string/tout" />
 
-    <Button
-        android:id="@+id/meneham"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        style="@style/CodeFont"
-        android:background="@drawable/mybutton"
-        android:layout_margin="@dimen/menu_margin"
 
-        android:text="@string/meneham"
-        android:onClick="boutonMeneHam"
-        />
+            <Button
+                android:id="@+id/paradis"
+                style="@style/CodeFont"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/menu_margin_bottom"
+                android:background="@drawable/mybutton"
 
-    <Button
-        android:id="@+id/riviere"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        style="@style/CodeFont"
-        android:background="@drawable/mybutton"
-        android:layout_margin="@dimen/menu_margin"
+                android:onClick="boutonParadis"
+                android:text="@string/petit_paradis" />
 
-        android:text="@string/riviere"
-        android:onClick="boutonRiviere"
-        />
+            <Button
+                android:id="@+id/bivouac"
+                style="@style/CodeFont"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/menu_margin_bottom"
 
-    <Button
-        android:id="@+id/cremiou"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        style="@style/CodeFont"
-        android:background="@drawable/mybutton"
-        android:layout_margin="@dimen/menu_margin"
+                android:background="@drawable/mybutton"
+                android:onClick="boutonBivouac"
+                android:text="@string/bivouac" />
 
-        android:text="@string/cremiou"
-        android:onClick="boutonCremiou"
-        />
-    <Button
-        android:id="@+id/neizvran"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        style="@style/CodeFont"
-        android:background="@drawable/mybutton"
-        android:layout_margin="@dimen/menu_margin"
+            <Button
+                android:id="@+id/meneham"
+                style="@style/CodeFont"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/menu_margin_bottom"
+                android:background="@drawable/mybutton"
 
-        android:text="@string/neizvran"
-        android:onClick="boutonNeizvran"
-        />
+                android:onClick="boutonMeneHam"
+                android:text="@string/meneham" />
+
+            <Button
+                android:id="@+id/riviere"
+                style="@style/CodeFont"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/menu_margin_bottom"
+                android:background="@drawable/mybutton"
+
+                android:onClick="boutonRiviere"
+                android:text="@string/riviere" />
+
+            <Button
+                android:id="@+id/cremiou"
+                style="@style/CodeFont"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/menu_margin_bottom"
+                android:background="@drawable/mybutton"
+
+                android:onClick="boutonCremiou"
+                android:text="@string/cremiou" />
+
+            <Button
+                android:id="@+id/neizvran"
+                style="@style/CodeFont"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/menu_margin_bottom"
+                android:background="@drawable/mybutton"
+
+                android:onClick="boutonNeizvran"
+                android:text="@string/neizvran" />
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

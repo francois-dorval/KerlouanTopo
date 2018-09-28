@@ -47,10 +47,11 @@
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
             app:layout_constraintLeft_toRightOf="@+id/cotation"
-
+            app:layout_constraintRight_toLeftOf="@+id/camera"
             android:text="Nom de la voie"
             android:textColor="@android:color/black"
             android:textSize="@dimen/text_size_large"
+
             />
 
         <ImageView

@@ -1,9 +1,9 @@
 package com.github.dorval.francois.kerlouantopo.fragment;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -13,7 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.github.dorval.francois.kerlouantopo.R;
-import com.github.dorval.francois.kerlouantopo.activity.MainActivity;
+import com.github.dorval.francois.kerlouantopo.activity.SecteurActivity;
 import com.github.dorval.francois.kerlouantopo.activity.secteur.ListeSubSecteurAdapter;
 import com.github.dorval.francois.kerlouantopo.activity.secteur.ListeVoieAdapter;
 import com.github.dorval.francois.kerlouantopo.activity.secteur.SubSecteurButtonClickListener;
@@ -24,12 +24,17 @@ import com.github.dorval.francois.kerlouantopo.model.Voie;
 import com.github.dorval.francois.kerlouantopo.util.ErrorPopup;
 import com.github.dorval.francois.kerlouantopo.util.ImageFromAsset;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class SecteurFragment extends Fragment {
 
 
+    ;
     private RecyclerView recycler_view_voies;
 
     private RecyclerView recycler_view_subsecteurs;
@@ -41,6 +46,8 @@ public class SecteurFragment extends Fragment {
     ImageView img;
 
     TextView commentaire;
+
+    private List<String> secteurPath;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -73,28 +80,23 @@ public class SecteurFragment extends Fragment {
             }
         });
 
-
-
-
         return view;
     }
 
 
-
-    public void updateSecteurData(String secteurPath){
+    /**
+     *
+     * @param secteurPath
+     */
+    public void updateSecteurData(List<String> secteurPath){
+        this.secteurPath = secteurPath;
         try {
-            secteur = secteurDao.getSecteur(this.getActivity(), secteurPath);
+            secteur = secteurDao.getSecteur(this.getActivity(), getStringSecteurPath(secteurPath));
 
-            commentaire.setText(secteur.getDescription1());
+            updateCommentaire(secteur);
+            updateImage(secteur);
 
-            try {
-                Bitmap bitmap = ImageFromAsset.getBitmapFromAssets(img.getContext().getAssets(), secteur.getMap());
-                img.setImageBitmap(bitmap);
 
-            } catch (IOException e) {
-                e.printStackTrace();
-
-            }
 
             //List<Voie> voies = VoieDaoStub.getVoies();
             List<Voie> voies = secteur.getVoies();
@@ -105,9 +107,8 @@ public class SecteurFragment extends Fragment {
                     new SubSecteurButtonClickListener() {
                         @Override
                         public void onItemClick(View v, int position) {
+                            goToSecteur(subSecteurs.get(position));
 
-                            Secteur.ID id = subSecteurs.get(position).getId();
-                            ((MainActivity)getActivity()).goToSecteur(id);
 
 
                             // do what ever you want to do with it
@@ -118,6 +119,70 @@ public class SecteurFragment extends Fragment {
             e.printStackTrace();
             ErrorPopup.show(this.getContext(), "Erreur récupération données secteur");
         }
+    }
+
+    /**
+     * update image secteur
+     * @param secteur
+     */
+    private void updateImage(Secteur secteur) {
+        if (StringUtils.isNotEmpty(secteur.getImage())){
+            try {
+                Bitmap bitmap = ImageFromAsset.getBitmapFromAssets(img.getContext().getAssets(), secteur.getImage());
+                img.setImageBitmap(bitmap);
+                img.setVisibility(View.VISIBLE);
+            } catch (IOException e) {
+                e.printStackTrace();
+                img.setVisibility(View.GONE);
+            }
+        }else{
+            img.setVisibility(View.GONE);
+        }
+
+    }
+
+    /**
+     * mise à jour description
+     * @param secteur
+     */
+    private void updateCommentaire(Secteur secteur) {
+        String description = secteur.getDescription();
+        if (StringUtils.isNotEmpty(description)){
+            commentaire.setText(description);
+        }else{
+            commentaire.setText("Topo à venir");
+        }
+
+
+    }
+
+
+    /**
+     *
+     * @param secteurPath
+     * @return
+     */
+    private String getStringSecteurPath(List<String> secteurPath) {
+        String res = "";
+        Iterator<String> iterator = secteurPath.iterator();
+        while (iterator.hasNext()) {
+            String sec = iterator.next();
+            res+=sec+"/";
+        }
+        return res;
+
+    }
+
+    /**
+     *
+     * @param subSecteur
+     */
+    private void goToSecteur(SubSecteur subSecteur) {
+        secteurPath.add(subSecteur.getId());
+        Intent intent = new Intent(getActivity(), SecteurActivity.class);
+        intent.putExtra(SecteurActivity.SECTEUR_PATH_PARAM,  (ArrayList<String>)secteurPath);
+        startActivity(intent);
+
     }
 
     /**

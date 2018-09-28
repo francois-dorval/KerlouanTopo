@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.res.AssetManager;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -113,9 +114,11 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     public void boutonNeizvran(View view)    {
-        Intent intent = new Intent(MenuActivity.this, MainActivity.class);
+        Intent intent = new Intent(MenuActivity.this, SecteurActivity.class);
         intent.putExtra(MENU_SELECTED, MenuElement.NEIZVRAN);
         startActivity(intent);
+
+
     }
 
 

@@ -9,7 +9,7 @@ public class SubSecteur {
 
 
 
-    private Secteur.ID id;
+    private String id;
 
     public String getNom() {
         return nom;
@@ -19,11 +19,11 @@ public class SubSecteur {
         this.nom = nom;
     }
 
-    public Secteur.ID getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Secteur.ID id) {
+    public void setId(String id) {
         this.id = id;
     }
 }
