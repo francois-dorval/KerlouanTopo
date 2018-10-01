@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,6 +50,8 @@ public class SecteurFragment extends Fragment {
     TextView commentaire;
 
     private List<String> secteurPath;
+    private ImageView poi_img;
+    private TextView poi_txt;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -58,6 +62,8 @@ public class SecteurFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_secteur, container, false);
 
         img = (ImageView)view.findViewById(R.id.img);
+        poi_img = (ImageView)view.findViewById(R.id.poi_img);
+        poi_txt = (TextView)view.findViewById(R.id.poi_txt);
         commentaire = (TextView)view.findViewById(R.id.commentaire);
 
         recycler_view_voies = (RecyclerView) view.findViewById(R.id.recycler_view_voies);
@@ -94,9 +100,10 @@ public class SecteurFragment extends Fragment {
             secteur = secteurDao.getSecteur(this.getActivity(), getStringSecteurPath(secteurPath));
 
             updateCommentaire(secteur);
+
             updateImage(secteur);
 
-
+            updatePoi(secteur);
 
             //List<Voie> voies = VoieDaoStub.getVoies();
             List<Voie> voies = secteur.getVoies();
@@ -118,6 +125,23 @@ public class SecteurFragment extends Fragment {
         } catch (Exception e) {
             e.printStackTrace();
             ErrorPopup.show(this.getContext(), "Erreur récupération données secteur");
+        }
+    }
+
+    /**
+     *
+     * @param secteur
+     */
+    private void updatePoi(Secteur secteur) {
+        if (StringUtils.isNotEmpty(secteur.getGps())){
+            poi_img.setVisibility(View.VISIBLE);
+            poi_txt.setVisibility(View.VISIBLE);
+            poi_txt.setText( Html.fromHtml(secteur.getGps()));
+            poi_txt.setMovementMethod(LinkMovementMethod.getInstance());
+
+        }else{
+            poi_img.setVisibility(View.GONE);
+            poi_txt.setVisibility(View.GONE);
         }
     }
 

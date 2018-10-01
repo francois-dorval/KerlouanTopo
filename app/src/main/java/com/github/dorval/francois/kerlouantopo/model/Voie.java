@@ -19,6 +19,8 @@ public class Voie implements Comparable<Voie>, Serializable{
 
     private String photo;
 
+    private String gps;
+
 
     public String getCotation() {
         return cotation;
@@ -49,6 +51,10 @@ public class Voie implements Comparable<Voie>, Serializable{
         return id;
     }
 
+    public String getGps() {        return gps;    }
+
+    public void setGps(String gps) {        this.gps = gps;    }
+
     @Override
     public int compareTo(@NonNull Voie voie) {
         return (int)(id-voie.id);
@@ -58,10 +64,11 @@ public class Voie implements Comparable<Voie>, Serializable{
     public String toString() {
         return "Voie{" +
                 "id=" + id +
-                ", cotation=" + cotation +
+                ", cotation='" + cotation + '\'' +
                 ", nom='" + nom + '\'' +
                 ", commentaire='" + commentaire + '\'' +
                 ", photo='" + photo + '\'' +
+                ", gps='" + gps + '\'' +
                 '}';
     }
 }

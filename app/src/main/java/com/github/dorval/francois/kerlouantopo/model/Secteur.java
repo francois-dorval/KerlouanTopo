@@ -16,6 +16,8 @@ public class Secteur {
 
     private String description;
 
+    private String gps;
+
     private List<SubSecteur> subsecteurs= new ArrayList<>();
 
     private List<Voie> voies = new ArrayList<>();
@@ -61,4 +63,21 @@ public class Secteur {
     public List<SubSecteur> getSubsecteurs() {return subsecteurs;}
 
     public void setSubsecteurs(List<SubSecteur> subsecteurs) {this.subsecteurs = subsecteurs;}
+
+    public String getGps() {        return gps;    }
+
+    public void setGps(String gps) {        this.gps = gps;    }
+
+    @Override
+    public String toString() {
+        return "Secteur{" +
+                "nom='" + nom + '\'' +
+                ", image='" + image + '\'' +
+                ", id='" + id + '\'' +
+                ", description='" + description + '\'' +
+                ", gps='" + gps + '\'' +
+                ", subsecteurs=" + subsecteurs +
+                ", voies=" + voies +
+                '}';
+    }
 }

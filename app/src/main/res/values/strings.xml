@@ -15,12 +15,20 @@
     <string name="txt_credits_link">
 Appli basée sur le topo Kimpadenn :\n
         http://krimpadenn.fr/articles/categories-articles/cartedebretagne/18-kerlouan
+        \n
+
 
     </string>
 
     <string name="txt_credits_body">
+        \n
+        et :
+        http://kerlouanabloc.blogspot.com/
+        \n
+        \n
 Annuaire des marées : \n
         http://maree.info/73    </string>
     <string name="neizvran">Neiz Vran</string>
+
 
 </resources>

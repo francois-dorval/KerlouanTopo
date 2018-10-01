@@ -24,10 +24,16 @@ public class VoieWidget extends RecyclerView.ViewHolder implements View.OnClickL
     private final TextView id;
     private final TextView commentaire;
     private final ImageView camera;
+    private final ImageView poi;
     private final ImageView photo;
+
 
     private boolean photoPresent = false;
 
+    /**
+     *
+     * @param v
+     */
     public VoieWidget(LinearLayout v) {
 
         super(v);
@@ -35,6 +41,7 @@ public class VoieWidget extends RecyclerView.ViewHolder implements View.OnClickL
         nom = (TextView) v.findViewById(R.id.nom);
         cotation = (TextView) v.findViewById(R.id.cotation);
         commentaire = (TextView) v.findViewById(R.id.commentaire);
+        poi= (ImageView) v.findViewById(R.id.poi);
         camera = (ImageView) v.findViewById(R.id.camera);
         photo = (ImageView) v.findViewById(R.id.photo);
 
@@ -42,31 +49,44 @@ public class VoieWidget extends RecyclerView.ViewHolder implements View.OnClickL
         root.setOnClickListener(this);
     }
 
+    /**
+     *
+     * @param holder
+     * @param voie
+     */
     public void setVoie(VoieWidget holder, Voie voie) {
 
+        //id secteur
         id.setText(voie.getId().toString());
 
+        //nom voie
         nom.setText(voie.getNom());
 
+        //cotation
         if (voie.getCotation()!=null){
             cotation.setText(voie.getCotation());
         }else{
             cotation.setText("?");
         }
 
-
+        //commentaire
         if (StringUtils.isNotEmpty(voie.getCommentaire())){
             commentaire.setText(voie.getCommentaire());
             commentaire.setVisibility(View.VISIBLE);
-
         }else{
             commentaire.setVisibility(View.GONE);
-
         }
 
+        //poi
+        if (StringUtils.isNotEmpty(voie.getGps())){
+            poi.setVisibility(View.VISIBLE);
+        }else{
+            poi.setVisibility(View.GONE);
+        }
+
+        //photo
         if (StringUtils.isNotEmpty(voie.getPhoto())){
             photoPresent = true;
-
             try {
                 Bitmap bitmap = ImageFromAsset.getBitmapFromAssets(holder.itemView.getContext().getAssets(), voie.getPhoto());
                 photo.setImageBitmap(bitmap);
@@ -84,9 +104,6 @@ public class VoieWidget extends RecyclerView.ViewHolder implements View.OnClickL
             camera.setVisibility(View.GONE);
             photo.setVisibility(View.GONE);
         }
-
-
-
     }
 
 
